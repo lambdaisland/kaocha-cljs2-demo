@@ -1,0 +1,5 @@
+#kaocha/v1
+{:plugins [:notifier :print-invocations :profiling]
+ :tests [{:type :kaocha.type/cljs2
+          :test-paths ["test"]
+          :kaocha.hooks/pre-load [kc2d.hooks/compile-and-load]}]}

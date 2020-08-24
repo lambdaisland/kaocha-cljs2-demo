@@ -1,0 +1,12 @@
+{:deps {:aliases [:dev :test]}
+
+ :builds
+ {:browser {:target    :browser-test
+            :test-dir  "out/browser"
+            :runner-ns kaocha.cljs2.shadow-runner
+            :devtools  {:http-port 8071
+                        :http-root "out/browser"}}
+
+  :node {:target :node-test
+         :output-to "out/node/test.js"
+         :main kaocha.cljs2.shadow-runner/start}}}

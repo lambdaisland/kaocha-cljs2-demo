@@ -3,6 +3,7 @@
  :tests   [{:type                       :kaocha.type/cljs2
             :test-paths                 ["test"]
             #_#_:kaocha.hooks/pre-load-test [kc2d.hooks/compile-and-load]
-            :kaocha.hooks/pre-load-test [kc2d.node-hooks/pre-load-test]}]
+            #_#_:kaocha.hooks/pre-load-test [kc2d.node-hooks/pre-load-test]}]
 
+ :report [kaocha.report/documentation]
  :kaocha.plugin.capture-output/capture-output? false}

@@ -1,16 +1,27 @@
 {:paths ["src" "resources"]
 
  :deps
- {org.clojure/clojure       {:mvn/version "1.10.1"}
-  org.clojure/clojurescript {:local/root "/home/arne/github/clojurescript"} #_{:mvn/version "1.10.773"}}
+ {org.clojure/clojure {:mvn/version "1.10.1"}
+  org.clojure/clojurescript
+  {;; :mvn/version "1.10.773"
+   ;; :git/url "https://github.com/plexus/clojurescript.git"
+   ;; :sha     "84ec25e734e79820c41bce22576f76df2126ec77" ;; require-macros
+   :local/root "/home/arne/github/clojurescript"
+   }
+
+  ;; We should add this, but we know the closure compiler pulls this in already,
+  ;; and we don't want to accidentally override the version they are using.
+  ;; com.google.guava/guava {:mvn/version "25.1-jre"}
+  }
 
  :aliases
  {:dev
   {:extra-paths ["dev"]
-   :extra-deps  {}}
+   :extra-deps  {vvvvalvalval/scope-capture {:mvn/version "0.3.2"}}}
 
   :test
   {:extra-paths ["test"]
-   :extra-deps  {lambdaisland/kaocha {:local/root "../kaocha"} #_{:mvn/version "1.0.632"}
-                 lambdaisland/kaocha-cljs2 {:local/root "../kaocha-cljs2"}
-                 lambdaisland/chui {:local/root "../chui"}}}}}
+   :extra-deps  {lambdaisland/kaocha        {:local/root "../kaocha"} #_ {:mvn/version "1.0.632"}
+                 lambdaisland/kaocha-cljs2  {:local/root "../kaocha-cljs2"}
+                 lambdaisland/chui          {:local/root "../chui"}
+                 lambdaisland/funnel-client {:local/root "../funnel-client"}}}}}
